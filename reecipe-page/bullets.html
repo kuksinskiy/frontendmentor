@@ -19,7 +19,6 @@
 
       .instructions__item {
         position: relative;
-        padding-inline-start: 28px;
       }
 
       .instructions__item::before {
@@ -38,10 +37,11 @@
 
       .ingredients__item {
         padding-inline-start: 40px;
-
         background-color: rgb(255, 144, 17);
-
         position: relative;
+
+        padding-inline-start: 40px;
+        line-height: 1.5;
       }
 
       .ingredients__item::before {
@@ -54,7 +54,7 @@
 
         /* padding тоже часть блока! */
         inset-inline-start: 8px;
-        inset-block-start: .5lh;
+        inset-block-start: 0.5lh;
         transform: translateY(-50%);
         border-radius: 50%;
       }

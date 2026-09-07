@@ -45,6 +45,7 @@
 
 h1,
 h2,
+dl,
 p {
   margin: 0;
 }
@@ -75,7 +76,7 @@ body {
 }
 
 .recipe-image {
-  display: inline-block;
+  display: block;
   width: 100%;
   object-fit: cover;
   border-radius: 12px;
@@ -84,7 +85,7 @@ body {
 .header__title {
   margin-block-start: var(--spacing-500);
   color: var(--color-stone-900, #312e2c);
-  font-family: "Young Serif";
+  font-family: var(--font-extra);
   font-size: 2.5rem;
   font-weight: 400;
   line-height: 100%; /* 40px */
@@ -93,7 +94,7 @@ body {
 .header__subtitle {
   margin-block-start: var(--spacing-300);
   color: var(--color-stone-600);
-  font-family: Outfit;
+  font-family: var(--font-base);
   font-size: 1rem;
 }
 
@@ -115,25 +116,13 @@ body {
 }
 
 .prep-time__list {
-  /* padding-inline-start: var(--spacing-300); */
 }
 
 .prep-time__item {
   position: relative;
   color: var(--color-stone-600);
   padding-inline-start: var(--spacing-500);
-  background-color: orange;
-}
-
-.prep-time__item::before {
-  content: "";
-  position: absolute;
-  inline-size: 4px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background-color: var(--color-brown-800);
-  inset-inline-start: 4px;
-  transform: translateY(-50%);
+  /* background-color: orange; */
 }
 
 .ingredients__title {
@@ -144,12 +133,17 @@ body {
   line-height: 1;
 }
 
+.ingredients {
+  padding-block: var(--spacing-400);
+  border-bottom: 1px solid var(--color-stone-150);
+}
+
 .ingredients__list {
-  /* padding-inline-start: var(--spacing-100); */
+  margin-block-start: var(--spacing-300);
 }
 
 .ingredients__item {
-  /* padding-inline-start: var(--spacing-200); */
+  padding-inline-start: var(--spacing-500);
 
   position: relative;
 
@@ -159,22 +153,12 @@ body {
   line-height: 1.5; /* 24px */
 }
 
-.ingredients__item::before {
-  content: "";
-  position: absolute;
-
-  inline-size: 4px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  /* inset-inline-start: 4px; */
-
-  inset-block-start: 0.5lh;
-  transform: translateY(-50%);
-
-  background: var(--color-brown-800);
-}
-
 /* instructions */
+
+.instructions {
+  padding-block: var(--spacing-400);
+  border-bottom: 1px solid var(--color-stone-150);
+}
 
 .instructions__title {
   color: var(--color-brown-800);
@@ -199,4 +183,45 @@ body {
 .instructions__item::marker {
   color: var(--color-brown-800);
   font-weight: 700;
+}
+
+.nutrition {
+  padding-block-start: var(--spacing-400);
+  display: grid;
+  gap: var(--spacing-300);
+}
+
+.nutrition__title {
+  color: var(--color-brown-800);
+  font-family: var(--font-extra);
+  font-size: 1.75rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.nutrition__subtitle {
+  color: var(--color-stone-600);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5; /* 24px */
+}
+
+.nutrition__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* БУЛЛЕТЫ */
+
+.prep-time__item::before,
+.ingredients__item::before {
+  content: "";
+  position: absolute;
+  inline-size: 4px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--color-brown-800);
+  transform: translateY(-50%);
+  inset-block-start: 0.5lh;
+  inset-inline-start: 8px;
 }
