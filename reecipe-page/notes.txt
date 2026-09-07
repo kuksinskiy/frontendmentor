@@ -1,0 +1,72 @@
+main
+	img (alt="Simple Omelette Recipe")
+	h1 (один на страницу главный)
+	p
+	section (prep time)
+		h2
+		ul
+	section (ingredients)
+		h2
+		ul
+	section (instructions)
+		h2
+		ol
+	section (nutrions)
+		h2
+		dl dt dd
+		
+
+Заголовки. Я незнаю если тут смысл в h3.
+Списки. Два ul, один ol и одна таблица из  dl dt dd
+Элементы списка определений (Description List) предназначены как раз для пар «название — значение» или «термин — описание»
+Как-то так:
+<dl class="nutrition-list">
+  <dt>Calories</dt>
+  <dd>277kcal</dd>
+
+  <dt>Carbs</dt>
+  <dd>0g</dd>
+
+  <dt>Protein</dt>
+  <dd>20g</dd>
+
+  <dt>Fat</dt>
+  <dd>22g</dd>
+</dl>
+
+
+Что повторяется.
+3 одинаковых заголовка: Ingredients, Instructions, Nutrions
+Три цвета: 
+color/stone-900 -- заголовок
+color/stone-600 -- текст
+color/rose-800 -- заголовок внутри секции
+color/brown-800 -- для буллеты
+Шрифт: для жирного используется: font-weight: 700; для обычного текста 400
+margin между секциями 40 или 40x2
+maring между заголовком секции и текстом 32
+Паттерн «жирная метка + двоеточие + текст» — он встречается в Preparation time (Total:, Preparation:) и в Instructions (Beat the eggs:, Heat the pan:). Один и тот же приём в двух разных списках
+
+
+Разделительные линии между Ingredients / Instructions / Nutrition сразу трудно сказать пока нет кода, но я бы не делал отдельный тег а повесил бы border на section, тем более она как раз соответствует его ширине.
+Здесь я использую какой-то из псведоскелекторов
+
+Жирные пункты меню можно сделат strong, т.к. они выделят в этой рецепты самые главные части.
+
+<ol>
+  <li>
+    <strong>Beat the eggs:</strong> In a bowl, beat the eggs with a pinch of salt and pepper...
+  </li>
+  <li>
+    <strong>Heat the pan:</strong> Place a non-stick frying pan over medium heat...
+  </li>
+  <!-- Остальные пункты -->
+</ol>
+
+На самом деле макета три, еще есть tablet.
+На desktop ширина белого основания 736px; внутри padding: 40, а сам фрейм 1440
+На table max-width: 616px; padding: 40, фрейм width: 768px;
+На mobile width: 375px; adding: 32
+
+Про "Один элемент ведёт себя на них принципиально по-разному."
+Скорее всего имеется ввиду верхнее изображение на mobile. Оно прижато к границам, без padding, margin и border radius.
