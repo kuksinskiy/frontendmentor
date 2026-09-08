@@ -1,0 +1,192 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url(fonts/Montserrat-VariableFont_wght.ttf) format("truetype");
+  font-weight: 500 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url(fonts/Fraunces_72pt-Bold.ttf) format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-white: #ffffff;
+  --color-black: #1c232b;
+  --color-grey: #6c7289;
+  --color-cream: #f2eae2;
+  --color-green-500: #3d8168;
+  --color-green-700: #1a4032;
+
+  --font-base: "Montserrat", sans-serif;
+  --font-extra: "Fraunces", serif;
+
+  --spacing-500: 40px;
+  --spacing-400: 32px;
+  --spacing-300: 24px;
+  --spacing-200: 16px;
+  --spacing-100: 8px;
+  --spacing-50: 4px;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0); /* Для поддержки старых браузеров */
+  clip-path: inset(50%); /* Современный стандарт обрезки */
+  white-space: nowrap;
+}
+
+body {
+  font-family: var(--font-base);
+  background-color: var(--color-cream);
+  margin: 0;
+  padding: var(--spacing-200);
+
+  display: grid;
+  place-items: center;
+
+  min-height: 100vh;
+}
+
+.main {
+  max-inline-size: 350px;
+  margin-inline: auto;
+}
+
+.product {
+  display: grid;
+  overflow: hidden;
+
+  background: var(--color-white);
+  border-radius: 8px;
+  grid-template-columns: 1fr;
+}
+
+.product__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .main {
+    max-inline-size: 600px;
+  }
+
+  .product {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .product__image {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.product__body {
+  padding: var(--spacing-300);
+  display: grid;
+  gap: var(--spacing-300);
+}
+
+.product__tag {
+  color: var(--color-grey);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 5px;
+}
+
+.product__title {
+  color: var(--color-black);
+  font-family: var(--font-extra);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1; /* 32px */
+}
+
+.product__subtitle {
+  color: var(--color-grey);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.6; /* 22.4px */
+}
+
+.product__price {
+  display: flex;
+  gap: var(--spacing-200);
+  align-items: center;
+  /* добиваем до 32px */
+  margin-block: var(--spacing-50);
+}
+.product__price-current {
+  color: var(--color-green-500);
+  font-family: var(--font-extra);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1; /* 32px */
+}
+
+.product__price-old {
+  color: var(--color-grey);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.2; /* 15.6px */
+  text-decoration: line-through;
+}
+
+.product__button {
+  display: flex;
+  padding: var(--spacing-200) var(--spacing-400);
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-100);
+  border-radius: var(--spacing-100);
+  background-color: var(--color-green-500);
+  border: 0;
+
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.product__button-icon {
+  color: var(--color-white);
+}
+
+.product__button-text {
+  display: inline-block;
+  font-size: 0.875rem;
+  color: var(--color-white);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.product__button:hover {
+  background-color: var(--color-green-700);
+}
+
+.product__button:focus-visible {
+  outline: 2px solid var(--color-green-500);
+  outline-offset: 4px;
+}
