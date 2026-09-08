@@ -24,8 +24,8 @@
   --color-rose-50: hsl(330, 100%, 98%);
   --color-rose-800: hsl(332, 51%, 32%);
 
-  --font-base: "Outfit", sans-serif;
-  --font-extra: "Young Serif", Serif;
+  --font-base: "Outfit";
+  --font-extra: "Young Serif";
 
   --spacing-1600: 128px;
   --spacing-600: 48px;
@@ -57,11 +57,6 @@ ul {
   list-style: none;
 }
 
-ol {
-  padding: 0;
-  margin: 0;
-}
-
 body {
   font-family: var(--font-base);
   line-height: 1.5;
@@ -70,43 +65,26 @@ body {
   margin: 0;
 }
 
-/* база = мобилка */
-
 .main {
-  background: var(--color-white);
-  overflow: hidden;
-}
+  max-inline-size: 736px;
+  margin-inline: auto;
+  margin-block-start: var(--spacing-1600);
 
-.container {
-  padding: var(--spacing-500);
+  padding-inline: var(--spacing-500);
+  padding-block: var(--spacing-500);
+  border-radius: 24px;
+  background: var(--color-white);
 }
 
 .recipe-image {
   display: block;
-  inline-size: 100%;
-  height: auto;
+  width: 100%;
   object-fit: cover;
-}
-
-@media (min-width: 768px) {
-  .main {
-    margin-inline: auto;
-    max-inline-size: 736px;
-    margin-block-start: var(--spacing-1600);
-    border-radius: 24px;
-  }
-
-  .recipe-image {
-    border-radius: 12px;
-  }
-
-  .main__image {
-    padding-inline: var(--spacing-500);
-    padding-block-start: var(--spacing-500);
-  }
+  border-radius: 12px;
 }
 
 .header__title {
+  margin-block-start: var(--spacing-500);
   color: var(--color-stone-900, #312e2c);
   font-family: var(--font-extra);
   font-size: 2.5rem;
@@ -193,7 +171,6 @@ body {
 
 .instructions__list {
   padding-inline-start: var(--spacing-300);
-  margin-block-start: var(--spacing-300);
 }
 
 .instructions__item {
@@ -278,7 +255,9 @@ body {
   margin-block-start: 1rem;
 }
 
-.attribution a:focus-visible {
-  outline: 2px solid var(--color-brown-800);
-  outline-offset: 4px;
+@media (min-width: 768px) {
+  /* max-width 616, padding 40, радиусы */
+}
+@media (min-width: 1440px) {
+  /* max-width 736 */
 }
